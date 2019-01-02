@@ -1,0 +1,62 @@
+
+<HTML>
+<HEAD>
+<TITLE>Crunchify - Iterate through JSONArray in JavaScript</TITLE>
+ 
+<style type="text/css">
+body {
+	background-image:
+		url('https://cdn.crunchify.com/wp-content/uploads/2013/03/Crunchify.bg_.300.png');
+}
+    #customers {
+    /* font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; */
+    border-collapse: collapse;
+    /* width: 100%; */
+}
+
+.letterfontStyle{
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+#customers td, #customers th {
+    border: 0px  #fff;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: white;}
+
+#customers tr:hover {background-color: white;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: white;
+    color: black;
+}
+</style>
+
+</HEAD>
+<BODY>
+	<h4>Hi,{{UserName}}</h4><br>
+<p>Great Job! You have successfully created an alert called</p> {{alertname}} ,here is the summary of your alert<br><br>Application Name :
+{{AppicationName}}<br><br>
+Measures:{{Measures}}<br><br>
+Current Value:{{CurrentValue}}<br><br>
+Threshold Value:{{threshold}}<br><br>
+AlertSetTime:{{setTime}}<br><br>
+<table id="customers">
+	<tr>
+		<th width=100>Field</th>
+		<th width=100>Value<th>
+	</tr>
+		{{#filtersetField}}
+		<tr>
+			<td width=100> {{filtersetField.Field}}</td>
+			<td width=100> {{filtersetField.Value}} </td>
+		</tr>
+		{{/filtersetField}}
+	</table>
+ 
+</BODY>
+</HTML>

@@ -1,0 +1,170 @@
+<!DOCTYPE HTML >
+<html lang="en">
+<head>
+  <script>
+    var myArray = ["apples", "bananas", "oranges"]
+    var tableName = $("#FilterID tbody");
+  $.each(myArray, function(idx, elem){
+    tableName.append("<tr><td>Filter Value</td><td>"+elem +"</td></tr>");
+  });
+  </script>
+  <style type="text/css">
+    
+    /* Outlines the grids, remove when sending */
+  
+    /* CLIENT-SPECIFIC STYLES */
+    body,  a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    /* table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; } */
+    /* img { -ms-interpolation-mode: bicubic; } */
+
+    /* RESET STYLES */
+    /* img { border: 0; outline: none; text-decoration: none; } */
+    /* table { border-collapse: collapse !important; } */
+    /* body { margin: 0 !important; padding: 0 !important; width: 100% !important; } */
+
+    /* iOS BLUE LINKS */
+    a[x-apple-data-detectors] {
+      color: inherit !important;
+      text-decoration: none !important;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+    }
+
+    /* ANDROID CENTER FIX */
+    div[style*="margin: 0px 0;"] { margin: 0 !important; }
+
+    /* MEDIA QUERIES */
+     @media all and (max-width:900px){ 
+      .wrapper{ width:320px!important; padding: 0 !important; }
+      .container{ width:300px!important;  padding: 0 !important; }
+      .mobile{ width:600px!important; display:block!important; padding: 0 !important; }
+      .img{ width:100% !important; height:auto !important; }
+      *[class="mobileOff"] { width: 0px !important; display: none !important; }
+      *[class*="mobileOn"] { display: block !important; max-height:none !important; }
+    } 
+
+
+    #customers {    
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+
+#customers td, #customers th {
+    border: 0px  white;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: white;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color:rgb(249,25,66);
+    color: black;
+}
+
+  </style>    
+</head>
+<body style="margin:0; padding:0; background-color:white;">
+
+      <table>
+        <tr>
+                <td colspan=2>
+                     <p class="letterfontStyle">
+                 Hi&nbsp;<strong>{{UserName}}</strong> , <br/> &nbsp;  &nbsp; Your alert  <strong>{{alertname}}</strong> has been triggered, please see below for the details.
+                 </p> 
+                </td>
+              </tr>
+        <tr>
+          <td>
+            <table class="container">
+                
+              <tr>
+                       <td  class="mobile"  valign="center">
+                              Alert Name  
+                       </td>
+                       <td class="mobile" style="padding-left: 10px" valign="center">
+                                {{alertname}}  
+                        </td>
+              </tr>
+             
+              <tr>
+                       <td  class="mobile"  valign="center">
+                          Condition Value  
+                      </td>
+                      <td class="mobile" style="padding-left: 10px" valign="center">
+                         {{threshold}}  
+                      </td>
+              </tr>
+               <tr>
+                      <td  class="mobile"  valign="Top">
+                            Alert Values 
+                      </td>
+                      <td  class="mobile" style="padding-left: 10px" valign="center">
+                       <table id="customers">
+                                <tr>
+                                  <th width=100>Field</th>
+                                  <th width=100>Value<th>
+                                </tr>
+                                  {{#CurrentValue}}
+                                  <tr>
+                                    <td>{{qText}}</td>
+                                    <td> {{qNum}}</td>
+                                  </tr>
+                                  {{/CurrentValue}}
+                      </table>
+                      </td>
+              </tr>
+              <tr>
+                       <td  class="mobile"  valign="center">
+                           Application Name
+                      </td>
+                      <td class="mobile" style="padding-left: 10px" valign="center">
+                         <a href={{qliksenseurl.hostname}}/sense/app/{{qliksenseurl.appid}}/option/clearselection/select/{{qliksenseurl.diamention}}>{{qliksenseurl.appname}}</a> 
+                      </td>
+              </tr>
+              <tr>
+                      <td  class="mobile"  valign="center">
+                          Measures  
+                      </td>
+                      <td  class="mobile" style="padding-left: 10px" valign="center">
+                         {{Measures}} 
+                      </td>
+              </tr> 
+               <tr>
+                      <td  align="left" valign="center">
+                          Alert triggered time  
+                      </td>
+                      <td  style="padding-left: 10px" valign="center">
+                          {{ triggerTime}} 
+                      </td>
+              </tr>
+               <tr>
+                            <td  style="padding-left: 10px" valign="center">
+                                <a href={{qliksenseurl.pinghostname}}:4500/pingAlert/unsubscribe/{{alertid}}/false>Unsubscribe</a> 
+                            </td>          
+                          </tr>
+             
+             
+            </table>
+          </td>
+        </tr>
+     
+      </table>
+        
+
+
+              
+
+            
+       
+  
+</body>
+</html>

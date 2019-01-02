@@ -1,0 +1,169 @@
+<!DOCTYPE HTML >
+<html lang="en">
+<head>
+  <script>
+    var myArray = ["apples", "bananas", "oranges"]
+    var tableName = $("#FilterID tbody");
+  $.each(myArray, function(idx, elem){
+    tableName.append("<tr><td>Filter Value</td><td>"+elem +"</td></tr>");
+  });
+  </script>
+  <style type="text/css">
+    
+    /* Outlines the grids, remove when sending */
+    {{!-- table, td, th {    
+    border: 0px  white;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+}
+.tablePadding{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+} --}}
+    /* CLIENT-SPECIFIC STYLES */
+    body,  a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    /* table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; } */
+    /* img { -ms-interpolation-mode: bicubic; } */
+
+    /* RESET STYLES */
+    /* img { border: 0; outline: none; text-decoration: none; } */
+    /* table { border-collapse: collapse !important; } */
+    /* body { margin: 0 !important; padding: 0 !important; width: 100% !important; } */
+
+    /* iOS BLUE LINKS */
+    a[x-apple-data-detectors] {
+      color: inherit !important;
+      text-decoration: none !important;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+    }
+
+    /* ANDROID CENTER FIX */
+    div[style*="margin: 0px 0;"] { margin: 0 !important; }
+
+ /* MEDIA QUERIES  */
+     @media all and (max-width:809px){ 
+      .wrapper{ width:320px!important; padding: 0 !important; }
+      .container{ width:300px!important;  padding: 0 !important; }
+      .mobile{ width:600px!important; display:block!important; padding: 0 !important; }
+      .img{ width:100% !important; height:auto !important; }
+      *[class="mobileOff"] { width: 0px !important; display: none !important; }
+      *[class*="mobileOn"] { display: block !important; max-height:none !important; }
+    }
+
+    #customers {
+   
+    border-collapse: collapse;
+    width: 40%;
+}
+
+/* .letterfontStyle{
+ 
+} */
+
+#customers td, #customers th {
+    border: 0px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: white;}
+
+#customers tr:hover {background-color: whitesmoke;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: white;
+    color: black;
+}
+
+  </style>    
+</head>
+<body style="margin:0; padding:0; background-color:white;">
+  
+          <table id="customers" class="container">
+                <tr>
+                <td colspan=2>
+                     <p class="letterfontStyle">
+                 Hi&nbsp;<strong>{{UserName}}</strong> , <br/> &nbsp;  &nbsp; Your alert  <strong>{{alertname}}</strong> has been triggered, please see below for the details.
+                 </p> 
+                </td>
+              </tr>
+                        <tr>
+                                 <td align="left" valign="center">
+                                       Application Name
+                                 </td>
+                                 <td style="padding-left: 10px" valign="center">
+                                        
+                                   <a href={{qliksenseurl.hostname}}/sense/app/{{qliksenseurl.appid}}>{{qliksenseurl.appname}}</a> 
+                              
+                                  </td>
+                        </tr>
+                        <tr>
+                                <td align="left" valign="center">
+                                   Measure Name 
+                                </td>
+                                <td  style="padding-left: 10px" valign="center">
+                                  {{Measures}}
+                                </td>
+                        </tr>
+                        <tr>
+                                 <td align="left" valign="center">
+                                   previous Value
+                                </td>
+                                <td style="padding-left: 10px" valign="center">
+                                   {{ PreviousValue}}  
+                                </td>
+                        </tr>
+                        <tr>
+                                 <td align="left" valign="center">
+                                    Current Value  
+                                </td>
+                                <td style="padding-left: 10px" valign="center">
+                                   {{ CurrentValue}}  
+                                </td>
+                        </tr>
+                        <tr>
+                                 <td align="left" valign="center">
+                                    Threshold Value
+                                </td>
+                                <td style="padding-left: 10px" valign="center">
+                                  {{threshold }}
+                               </td>
+                        </tr>
+                        <tr>
+                                <td  align="left" valign="center">
+                                    Alert Triggered Time  
+                                </td>
+                                <td  style="padding-left: 10px" valign="center">
+                                   {{ triggerTime}} 
+                                </td>
+                        </tr>
+                          <tr>
+                            <td  style="padding-left: 10px" valign="center">
+                                <a href={{qliksenseurl.pinghostname}}:4500/pingAlert/unsubscribe/{{alertid}}/false>Unsubscribe</a> 
+                            </td>          
+                          </tr>
+                   
+                  
+                </table>
+
+              
+
+            
+       
+  
+</body>
+</html>
